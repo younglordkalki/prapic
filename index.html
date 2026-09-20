@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>PraPic · Luxury Wedding & Editorial Atelier · New Delhi</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090909',
+            surface: '#121212',
+            card: '#171717',
+            borderDark: '#262626',
+            gold: {
+              300: '#F3D997',
+              400: '#E4BF68',
+              500: '#D4AF37',
+              600: '#B89222',
+            },
+            parchment: '#F6F6F2',
+            mutedText: '#8F8F8F'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #090909;
+      color: #F6F6F2;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .serif-title {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: -0.015em;
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF4D0 0%, #D4AF37 55%, #9E791E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090909;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .shake-anim {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    .curtain-left {
+      transform: translateX(-100%);
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .curtain-right {
+      transform: translateX(100%);
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-parchment min-h-screen flex flex-col antialiased selection:bg-gold-500 selection:text-black">
+
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="fixed top-6 right-6 z-50 transform translate-y-[-150%] opacity-0 transition-all duration-500 max-w-sm w-[90vw] md:w-auto bg-surface border border-gold-500/50 px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
+    <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+    <p id="toastMessage" class="text-xs tracking-wider uppercase text-parchment font-medium">Notification</p>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-borderDark/70 transition-all">
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 h-20 flex items-center justify-between">
+      <a href="#" onclick="showView('public-home')" class="group flex items-center gap-3">
+        <!-- Geometric Logo Mark -->
+        <div class="w-9 h-9 rounded-xl border border-gold-500/60 flex items-center justify-center bg-card/90 shadow-md group-hover:border-gold-400 transition-all group-hover:scale-105">
+          <span class="font-sans text-xs font-bold tracking-tighter text-gold-400">P<span class="text-parchment">/</span>P</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="text-sm font-semibold tracking-[0.25em] text-parchment group-hover:text-gold-300 transition-colors uppercase">PraPic</span>
+            <span class="w-1 h-1 rounded-full bg-gold-400"></span>
+          </div>
+          <span class="text-[9px] uppercase tracking-[0.28em] text-mutedText">Atelier · New Delhi</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] text-mutedText">
+        <a href="#atelier" onclick="showView('public-home')" class="hover:text-gold-400 transition-colors">Atelier</a>
+        <a href="#services" onclick="showView('public-home')" class="hover:text-gold-400 transition-colors">Commissions</a>
+        <a href="#consultation" onclick="showView('public-home')" class="hover:text-gold-400 transition-colors">Inquire</a>
+        <button onclick="openClientGateModal()" class="px-5 py-2.5 rounded-full border border-gold-500/40 text-gold-400 hover:border-gold-400 hover:bg-gold-500/10 transition-all">
+          Client Vault
+        </button>
+        <button onclick="openAdminGateModal()" class="text-[10px] tracking-widest text-neutral-400 hover:text-gold-400 transition-colors border-l border-borderDark pl-6 flex items-center gap-2">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          PraPic Admin
+        </button>
+      </nav>
+
+      <!-- Mobile Actions -->
+      <div class="flex md:hidden items-center gap-2.5">
+        <button onclick="openClientGateModal()" class="text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-gold-500/40 text-gold-400 bg-gold-500/5">
+          Vault
+        </button>
+        <button onclick="toggleMobileNav()" class="p-2 text-gold-400 focus:outline-none" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-surface border-b border-borderDark px-6 py-6 space-y-4">
+      <a href="#atelier" onclick="toggleMobileNav(); showView('public-home')" class="block text-xs uppercase tracking-widest text-parchment">Portfolio Atelier</a>
+      <a href="#services" onclick="toggleMobileNav(); showView('public-home')" class="block text-xs uppercase tracking-widest text-parchment">Commissions & Rates</a>
+      <a href="#consultation" onclick="toggleMobileNav(); showView('public-home')" class="block text-xs uppercase tracking-widest text-parchment">Commission Inquiry</a>
+      <hr class="border-borderDark" />
+      <button onclick="toggleMobileNav(); openClientGateModal()" class="w-full text-left text-xs uppercase tracking-widest text-gold-400 font-medium">Access Private Vault</button>
+      <button onclick="toggleMobileNav(); openAdminGateModal()" class="w-full text-left text-[11px] uppercase tracking-widest text-neutral-400">PraPic Studio Admin</button>
+    </div>
+  </header>
+
+
+  <main class="flex-grow">
+    
+    <!-- VIEW 1: PUBLIC HOMEPAGE & PORTFOLIO -->
+    <section id="view-public" class="space-y-28 pb-28">
+      
+      <!-- Hero Section -->
+      <div class="relative min-h-[85vh] flex items-center justify-center text-center px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-gold-500/5 via-transparent to-obsidian pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto space-y-8">
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-gold-500/30 bg-card/60 backdrop-blur-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+            <span class="text-[11px] uppercase tracking-[0.25em] text-gold-300">PraPic · New Delhi & Global Commissions</span>
+          </div>
+
+          <h1 class="serif-title text-5xl sm:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight">
+            Timeless Grandeur.<br />
+            <span class="italic font-light gold-gradient-text">Documented.</span>
+          </h1>
+
+          <p class="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-neutral-400 leading-relaxed font-light tracking-wide">
+            PraPic documents monumental Indian weddings, royal palace ceremonies, and haute couture editorials across South Delhi farmhouses, Udaipur, Jaipur, and destination venues worldwide.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian font-medium text-xs uppercase tracking-[0.2em] transition-all shadow-lg shadow-gold-500/20">
+              Explore Commissions
+            </a>
+            <button onclick="openClientGateModal()" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderDark hover:border-gold-500/60 bg-surface/50 text-parchment text-xs uppercase tracking-[0.2em] transition-all">
+              Private Client Vault
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atelier Portfolio Gallery -->
+      <section id="atelier" class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-400">The Visual Archive</span>
+            <h2 class="serif-title text-4xl sm:text-5xl mt-2 font-light">Curated Portfolio</h2>
+          </div>
+          <p class="text-xs text-mutedText tracking-wider max-w-sm">From Chhatarpur farmhouses and Sunder Nursery to Jagmandir Island Palace in Udaipur.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="md:col-span-8 group relative overflow-hidden rounded-2xl bg-card h-[460px] border border-borderDark/70">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop" alt="The Jagmandir Nuptials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <span class="text-[10px] tracking-[0.25em] uppercase text-gold-400">The Jagmandir Nuptials · Udaipur</span>
+              <h3 class="serif-title text-2xl sm:text-3xl text-parchment font-light mt-1">The Kapoor–Mehra Wedding</h3>
+              <p class="text-xs text-neutral-400 font-light mt-1">PraPic medium format digital & 35mm archival heirloom capture</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative overflow-hidden rounded-2xl bg-card h-[460px] border border-borderDark/70">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=900&auto=format&fit=crop" alt="Couture Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <span class="text-[10px] tracking-[0.25em] uppercase text-gold-400">Haute Couture Atelier</span>
+              <h3 class="serif-title text-2xl text-parchment font-light mt-1">Tarun Tahiliani Bridal</h3>
+              <p class="text-xs text-neutral-400 font-light mt-1">Sunder Nursery, New Delhi</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 group relative overflow-hidden rounded-2xl bg-card h-[420px] border border-borderDark/70">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop" alt="Gurugram Sangeet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <span class="text-[10px] tracking-[0.25em] uppercase text-gold-400">Gurugram Evening Soirée</span>
+              <h3 class="serif-title text-2xl text-parchment font-light mt-1">The Sangeet Odyssey</h3>
+              <p class="text-xs text-neutral-400 font-light mt-1">The Oberoi, Gurugram</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 group relative overflow-hidden rounded-2xl bg-card h-[420px] border border-borderDark/70">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" alt="Dynasty Portraiture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <span class="text-[10px] tracking-[0.25em] uppercase text-gold-400">Monolith Fine Art</span>
+              <h3 class="serif-title text-2xl sm:text-3xl text-parchment font-light mt-1">Archival Dynasty Keepsakes</h3>
+              <p class="text-xs text-neutral-400 font-light mt-1">Museum cotton pigment prints & hand-bound leather albums</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- DYNAMIC SERVICES & PRICING SECTION -->
+      <section id="services" class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <span class="text-xs uppercase tracking-[0.3em] text-gold-400">PraPic Rate Card</span>
+          <h2 class="serif-title text-4xl sm:text-5xl font-light">Services & Commissions</h2>
+          <p class="text-xs text-mutedText tracking-wide">All commissions include private cloud vault access, color-calibrated master RAW delivery, and white-glove Delhi NCR consultation.</p>
+        </div>
+
+        <div id="services-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically populated from State -->
+        </div>
+      </section>
+
+      <!-- Consultation Booking Form -->
+      <section id="consultation" class="max-w-4xl mx-auto px-6">
+        <div class="bg-card border border-borderDark/90 rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+          <div class="absolute -right-20 -top-20 w-60 h-60 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-400">Direct Inquiries</span>
+            <h3 class="serif-title text-3xl sm:text-4xl font-light">Request A Private Consultation</h3>
+            <p class="text-xs text-mutedText">PraPic accepts a limited number of commissions each calendar year to maintain uncompromising quality.</p>
+          </div>
+
+          <form id="leadForm" onsubmit="handleConsultationSubmit(event)" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[11px] uppercase tracking-widest text-neutral-400 mb-2">Full Name</label>
+                <input required type="text" id="clientName" placeholder="e.g. Radhika Kapoor" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-colors" />
+              </div>
+              <div>
+                <label class="block text-[11px] uppercase tracking-widest text-neutral-400 mb-2">WhatsApp / Phone Number</label>
+                <input required type="tel" id="clientPhone" placeholder="+91 98765 43210" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-colors" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[11px] uppercase tracking-widest text-neutral-400 mb-2">Commission Category</label>
+                <select id="commissionType" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-colors">
+                  <!-- Dynamically populated from active services list -->
+                </select>
+              </div>
+              <div>
+                <label class="block text-[11px] uppercase tracking-widest text-neutral-400 mb-2">Primary Venue Location</label>
+                <select id="shootLocation" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-colors">
+                  <option value="South Delhi Farmhouse (Chhatarpur / Westend)">South Delhi Farmhouse (Chhatarpur / Westend)</option>
+                  <option value="The Leela Palace / The Oberoi, New Delhi">The Leela Palace / The Oberoi, New Delhi</option>
+                  <option value="The Oberoi / Trident, Gurugram">The Oberoi / Trident, Gurugram</option>
+                  <option value="Destination: Udaipur / Jaipur / Jodhpur">Destination: Udaipur / Jaipur / Jodhpur</option>
+                  <option value="International Commission">International Commission</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-widest text-neutral-400 mb-2">Estimated Date or Season</label>
+              <input type="text" id="eventDate" placeholder="e.g. November 2026 / Winter Wedding Season" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-colors" />
+            </div>
+
+            <div class="pt-2 text-center">
+              <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian font-medium text-xs uppercase tracking-[0.25em] transition-all shadow-lg shadow-gold-500/20">
+                Submit Commission Inquiry
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </section>
+
+
+    <!-- VIEW 2: PRIVATE CLIENT VAULT -->
+    <section id="view-vault" class="hidden min-h-screen pb-28">
+      
+      <!-- Vault Navigation Subbar -->
+      <div class="border-b border-borderDark/80 bg-surface/50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs uppercase tracking-widest text-parchment font-medium" id="vaultClientNameDisplay">PraPic · Vault Archive</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <button onclick="showView('public-home')" class="text-xs text-mutedText hover:text-parchment transition-colors uppercase tracking-widest">
+              Exit Vault
+            </button>
+            <button onclick="triggerShareGallery()" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-wider hover:bg-gold-500/10 transition-all">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share Suite
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone Re-engagement Banner (Lifecycle Engine) -->
+      <div class="max-w-7xl mx-auto px-6 pt-6">
+        <div class="bg-gradient-to-r from-gold-500/15 via-surface to-card border border-gold-500/40 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-1.5 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-gold-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+              <span>Anniversary Concierge Program</span>
+            </div>
+            <h4 class="serif-title text-xl sm:text-2xl text-parchment font-light" id="milestoneHeadline">
+              1st Karwa Chauth & Wedding Anniversary Cinema Cut unlocks in 60 days
+            </h4>
+            <p class="text-xs text-neutral-400">Complimentary 4K remastered highlight reel and Italian leather keepsake album upgrade available.</p>
+          </div>
+
+          <div class="flex items-center gap-4 w-full md:w-auto justify-end">
+            <button id="milestoneBtn" onclick="toggleMilestoneReservation()" class="w-full md:w-auto px-6 py-3 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian text-xs uppercase tracking-widest font-semibold transition-all">
+              Pre-Reserve Cut
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shoot Tabs & Active Shoot Header -->
+      <div class="max-w-7xl mx-auto px-6 pt-8">
+        <div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-none border-b border-borderDark" id="gallery-tabs-nav">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="py-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="text-[11px] uppercase tracking-[0.3em] text-gold-400" id="currentShootTag">Commission Series</span>
+            <h2 class="serif-title text-3xl sm:text-5xl font-light text-parchment mt-1" id="currentShootTitle">The Kapoor-Mehra Nuptials</h2>
+            <p class="text-xs text-neutral-400 mt-1" id="currentShootMeta">The Leela Palace, Udaipur · 4K Master Archival Resolution</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="downloadAllPreview()" class="px-5 py-2.5 rounded-xl bg-card border border-borderDark hover:border-gold-500/50 text-xs text-neutral-300 uppercase tracking-widest transition-all inline-flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              Batch ZIP Export
+            </button>
+          </div>
+        </div>
+
+        <!-- 12-Column Asymmetric Lookbook Grid -->
+        <div id="editorial-grid" class="grid grid-cols-1 md:grid-cols-12 gap-5">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- VIEW 3: PRAPIC ADMIN DASHBOARD WITH SERVICE CRUD -->
+    <section id="view-admin" class="hidden min-h-screen pb-28">
+      <div class="border-b border-borderDark bg-surface/80 sticky top-20 z-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl border border-gold-500/60 flex items-center justify-center bg-card">
+              <span class="font-sans text-xs font-bold text-gold-400 tracking-tight">P<span class="text-parchment">/</span>P</span>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">Atelier Control Centre</span>
+              <h2 class="serif-title text-2xl sm:text-3xl font-light">PraPic Atelier Administration</h2>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="resetServicesToDefault()" class="text-xs uppercase tracking-wider text-neutral-400 hover:text-rose-400 border border-borderDark px-3.5 py-2 rounded-xl transition-colors">
+              Reset Default Rates
+            </button>
+            <button onclick="showView('public-home')" class="px-5 py-2 rounded-full border border-gold-500/50 text-gold-400 hover:bg-gold-500/10 text-xs uppercase tracking-widest transition-all">
+              Exit Admin
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 py-10 space-y-12">
+        
+        <!-- Metric Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="bg-card border border-borderDark rounded-2xl p-6 space-y-1">
+            <span class="text-xs uppercase tracking-wider text-mutedText">Published Commissions</span>
+            <p class="serif-title text-4xl text-parchment font-light" id="adminTotalServicesCount">3</p>
+            <span class="text-[10px] text-gold-400">Live on public atelier</span>
+          </div>
+
+          <div class="bg-card border border-borderDark rounded-2xl p-6 space-y-1">
+            <span class="text-xs uppercase tracking-wider text-mutedText">Commission Inquiries</span>
+            <p class="serif-title text-4xl text-parchment font-light" id="adminTotalLeadsCount">3</p>
+            <span class="text-[10px] text-emerald-400">Delhi NCR & Destination</span>
+          </div>
+
+          <div class="bg-card border border-borderDark rounded-2xl p-6 space-y-1">
+            <span class="text-xs uppercase tracking-wider text-mutedText">Active Client Vaults</span>
+            <p class="serif-title text-4xl text-gold-300 font-light" id="adminTotalVaultsCount">3</p>
+            <span class="text-[10px] text-mutedText">Protected via unique PIN</span>
+          </div>
+        </div>
+
+        <!-- CRUD SERVICES MANAGER -->
+        <div class="bg-card border border-borderDark rounded-3xl p-7 sm:p-9 space-y-7">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-borderDark pb-6">
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">Commissions & Packages</span>
+              <h3 class="serif-title text-3xl font-light">Services & Pricing Manager</h3>
+              <p class="text-xs text-neutral-400 mt-1">Add, edit, or remove services. Every change is immediately reflected on your public website.</p>
+            </div>
+
+            <button onclick="openServiceModal()" class="px-6 py-3 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian text-xs uppercase tracking-widest font-semibold transition-all inline-flex items-center gap-2 shadow-lg shadow-gold-500/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              Add New Commission
+            </button>
+          </div>
+
+          <!-- Services Grid in Admin -->
+          <div id="adminServicesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- TWO COLUMN LAYOUT: UPSELL RATES & VAULT DIRECTORY -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Upsell Add-on Pricing Modifier -->
+          <div class="lg:col-span-5 bg-card border border-borderDark rounded-3xl p-7 space-y-6">
+            <div class="border-b border-borderDark pb-4">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">Vault Monetization</span>
+              <h3 class="serif-title text-2xl font-light">Client Upsell Pricing</h3>
+              <p class="text-xs text-neutral-400 mt-0.5">Rates charged inside the client print visualizer.</p>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Raw Silk & Italian Leather Keepsake Album (₹)</label>
+                <input type="number" id="adminRateAlbum" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+              </div>
+
+              <div>
+                <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Director's 4K Anniversary Cinema Cut (₹)</label>
+                <input type="number" id="adminRateAnniversary" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+              </div>
+
+              <div>
+                <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">36×24 Museum Archival Print Base (₹)</label>
+                <input type="number" id="adminRatePrint" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+              </div>
+
+              <button onclick="saveAdminUpsellRates()" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian text-xs uppercase tracking-widest font-semibold transition-all">
+                Update Upsell Rate Card
+              </button>
+            </div>
+
+            <!-- Add New Client Shoot Quick Provisioner -->
+            <div class="pt-6 border-t border-borderDark space-y-4">
+              <div>
+                <h4 class="serif-title text-xl font-light">Provision New Client Vault</h4>
+                <p class="text-xs text-neutral-400">Assign a private PIN for client access.</p>
+              </div>
+
+              <div class="space-y-3">
+                <input type="text" id="newShootTitle" placeholder="Shoot Title (e.g. The Singhania Nuptials)" class="w-full bg-obsidian border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+                <input type="text" id="newShootLocation" placeholder="Location (e.g. Westend Greens, Chhatarpur)" class="w-full bg-obsidian border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+                <div class="grid grid-cols-2 gap-3">
+                  <input type="text" id="newShootKey" placeholder="PIN (e.g. SING2026)" class="w-full bg-obsidian border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none uppercase" />
+                  <input type="number" id="newShootMilestone" placeholder="Milestone (Days)" class="w-full bg-obsidian border border-borderDark rounded-xl px-3.5 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+                </div>
+                <button onclick="createNewClientShoot()" class="w-full py-2.5 rounded-xl border border-gold-500/50 hover:bg-gold-500/10 text-gold-400 text-xs uppercase tracking-wider transition-all">
+                  + Create Client Suite
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inquiries Lead Tracker & Vault Directories -->
+          <div class="lg:col-span-7 space-y-8">
+            
+            <!-- Lead Tracker -->
+            <div class="bg-card border border-borderDark rounded-3xl p-7 space-y-4">
+              <div class="flex items-center justify-between border-b border-borderDark pb-4">
+                <div>
+                  <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">Client Pipeline</span>
+                  <h3 class="serif-title text-2xl font-light">Consultation Inquiries</h3>
+                </div>
+                <span class="text-xs text-gold-400 uppercase tracking-widest font-mono" id="leadCountBadge">0 Leads</span>
+              </div>
+
+              <div id="adminLeadsList" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Vault Directories -->
+            <div class="bg-card border border-borderDark rounded-3xl p-7 space-y-4">
+              <div class="border-b border-borderDark pb-4">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">Encrypted Archives</span>
+                <h3 class="serif-title text-2xl font-light">Active Client Vaults</h3>
+              </div>
+
+              <div id="adminGalleriesList" class="space-y-3">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- MODAL: ADD / EDIT SERVICE MODAL -->
+  <div id="serviceModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 hidden">
+    <div class="max-w-lg w-full bg-surface border border-borderDark p-8 rounded-3xl shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeServiceModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-parchment">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="space-y-1">
+        <span class="text-[10px] uppercase tracking-[0.25em] text-gold-400" id="serviceModalSub">PraPic Commission</span>
+        <h3 class="serif-title text-2xl font-light" id="serviceModalTitle">Create Commission Offering</h3>
+        <p class="text-xs text-neutral-400">Configure parameters for your public pricing catalogue.</p>
+      </div>
+
+      <input type="hidden" id="serviceModalId" value="" />
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Service Title</label>
+          <input type="text" id="svcInputTitle" placeholder="e.g. Royal Destination Nuptials" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" required />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Category Tag</label>
+            <input type="text" id="svcInputTag" placeholder="e.g. Wedding Commissions" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" required />
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Starting Price (INR ₹)</label>
+            <input type="number" id="svcInputPrice" placeholder="450000" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" required />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Description</label>
+          <textarea id="svcInputDesc" rows="3" placeholder="Full coverage across Udaipur, South Delhi & international venues..." class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-neutral-400 mb-1.5">Deliverables (Comma separated)</label>
+          <input type="text" id="svcInputDeliverables" placeholder="3-Day Master Team, Medium Format Archival, Private Cloud Vault" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-2.5 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <input type="checkbox" id="svcInputHighlight" class="accent-gold-500 w-4 h-4 rounded" />
+          <label for="svcInputHighlight" class="text-xs text-parchment">Feature as "Most Inquired" on Homepage</label>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-4 border-t border-borderDark">
+        <button onclick="closeServiceModal()" class="w-1/2 py-3 rounded-xl border border-borderDark text-xs text-neutral-400 uppercase tracking-wider hover:text-parchment">Cancel</button>
+        <button onclick="saveServiceFromModal()" class="w-1/2 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian font-semibold text-xs uppercase tracking-wider transition-all">Save Offering</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CLIENT VAULT ACCESS GATE -->
+  <div id="clientGateModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 hidden">
+    <div id="curtainLeft" class="fixed top-0 left-0 w-1/2 h-full bg-obsidian border-r border-gold-500/20 z-10 transition-transform duration-1000 ease-out pointer-events-none"></div>
+    <div id="curtainRight" class="fixed top-0 right-0 w-1/2 h-full bg-obsidian border-l border-gold-500/20 z-10 transition-transform duration-1000 ease-out pointer-events-none"></div>
+
+    <div id="gateCard" class="relative z-20 max-w-md w-full text-center space-y-6 p-8 rounded-3xl bg-surface/80 border border-borderDark/90 shadow-2xl">
+      <button onclick="closeClientGateModal()" class="absolute top-6 right-6 text-neutral-500 hover:text-parchment transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="space-y-2">
+        <div class="w-10 h-10 mx-auto rounded-xl border border-gold-500/60 flex items-center justify-center bg-card mb-3">
+          <span class="font-sans text-xs font-bold text-gold-400">P<span class="text-parchment">/</span>P</span>
+        </div>
+        <span class="text-[10px] uppercase tracking-[0.3em] text-gold-400">PraPic · Private Suite</span>
+        <h3 class="serif-title text-3xl font-light">Your gallery is held in private.</h3>
+        <p class="text-xs text-mutedText">Enter the invitation key from your bespoke invitation card.</p>
+      </div>
+
+      <div class="space-y-3">
+        <input type="text" id="vaultKeyInput" placeholder="INVITATION KEY" class="w-full text-center tracking-[0.3em] uppercase bg-obsidian border border-borderDark rounded-xl px-4 py-3.5 text-xs text-parchment focus:border-gold-500 focus:outline-none transition-all" />
+        <p id="gateErrorText" class="text-[11px] text-rose-400 hidden">Invalid invitation key. Please check with your concierge.</p>
+      </div>
+
+      <button onclick="validateVaultKey()" class="w-full py-3.5 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian text-xs uppercase tracking-[0.25em] font-semibold transition-all">
+        Open The Vault
+      </button>
+
+      <p class="text-[10px] text-neutral-500 tracking-wider">Demo Keys: <span class="text-gold-400 cursor-pointer" onclick="document.getElementById('vaultKeyInput').value='VAULT2026'">VAULT2026</span> · <span class="text-gold-400 cursor-pointer" onclick="document.getElementById('vaultKeyInput').value='COUTURE2026'">COUTURE2026</span></p>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN ACCESS GATE -->
+  <div id="adminGateModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6 hidden">
+    <div class="max-w-sm w-full bg-surface border border-borderDark p-8 rounded-2xl text-center space-y-5">
+      <div class="w-10 h-10 mx-auto rounded-xl border border-gold-500/60 flex items-center justify-center bg-card mb-2">
+        <span class="font-sans text-xs font-bold text-gold-400">P<span class="text-parchment">/</span>P</span>
+      </div>
+      <h3 class="serif-title text-2xl font-light">PraPic Atelier Admin</h3>
+      <p class="text-xs text-neutral-400">Restricted to Studio Administration.</p>
+      
+      <input type="password" id="adminPinInput" placeholder="ENTER ADMIN PIN" class="w-full text-center tracking-widest bg-obsidian border border-borderDark rounded-xl px-4 py-3 text-xs text-parchment focus:border-gold-500 focus:outline-none" />
+      <p id="adminErrorText" class="text-[11px] text-rose-400 hidden">Incorrect Administrator PIN.</p>
+      
+      <div class="flex gap-3">
+        <button onclick="closeAdminGateModal()" class="w-1/2 py-2.5 rounded-xl border border-borderDark text-xs text-neutral-400 uppercase tracking-wider">Cancel</button>
+        <button onclick="validateAdminPin()" class="w-1/2 py-2.5 rounded-xl bg-gold-500 text-obsidian font-medium text-xs uppercase tracking-wider">Authorize</button>
+      </div>
+      <p class="text-[10px] text-neutral-500">Default PIN: <span class="text-gold-400 font-mono">ADMIN2026</span></p>
+    </div>
+  </div>
+
+
+  <!-- MODAL: HIGH-RES LIGHTBOX -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between hidden select-none">
+    <div class="p-6 flex items-center justify-between border-b border-borderDark/50">
+      <div class="space-y-0.5">
+        <h4 id="lbTitle" class="serif-title text-xl font-light text-parchment">Editorial Plate</h4>
+        <p id="lbMeta" class="text-[11px] text-neutral-400 tracking-wider">Hasselblad H6D · 80mm f/2.8 · ISO 64</p>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <button onclick="toggleFavoriteCurrentPhoto()" class="flex items-center gap-1.5 text-xs text-neutral-300 hover:text-gold-400 transition-colors">
+          <svg class="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          <span id="lbFavoriteCount" class="text-[11px]">0</span>
+        </button>
+
+        <button onclick="triggerShareCurrentPhoto()" class="p-2 text-neutral-300 hover:text-gold-400 transition-colors" title="Share Photo">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+        </button>
+
+        <button onclick="openPrintDrawerForCurrent()" class="px-4 py-1.5 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs uppercase tracking-wider hover:bg-gold-500 hover:text-obsidian transition-all">
+          Order Print
+        </button>
+
+        <button onclick="closeLightbox()" class="p-2 text-neutral-400 hover:text-parchment transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="relative flex-grow flex items-center justify-center p-4">
+      <button onclick="navigateLightbox(-1)" class="absolute left-6 p-3 rounded-full bg-surface/70 hover:bg-card text-parchment transition-all" aria-label="Previous">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+
+      <img id="lbImage" src="" alt="Expanded View" class="max-h-[75vh] max-w-[90vw] object-contain rounded-lg shadow-2xl transition-all duration-300" />
+
+      <button onclick="navigateLightbox(1)" class="absolute right-6 p-3 rounded-full bg-surface/70 hover:bg-card text-parchment transition-all" aria-label="Next">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+    </div>
+
+    <div class="p-4 text-center border-t border-borderDark/40 text-[11px] text-mutedText uppercase tracking-widest">
+      Keyboard Navigation: ← Left / → Right · Esc to Close
+    </div>
+  </div>
+
+  <!-- DRAWER: FINE ART PRINT & UPSELL VISUALIZER -->
+  <div id="printDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-lg bg-surface border-l border-borderDark shadow-2xl transform translate-x-full transition-transform duration-500 ease-out flex flex-col">
+    <div class="p-6 border-b border-borderDark flex items-center justify-between">
+      <div>
+        <span class="text-[10px] uppercase tracking-[0.25em] text-gold-400">PraPic Fine Art Lab</span>
+        <h3 class="serif-title text-2xl font-light">Bespoke Wall Prints & Albums</h3>
+      </div>
+      <button onclick="closePrintDrawer()" class="p-2 text-neutral-400 hover:text-parchment">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <div class="flex-grow overflow-y-auto p-6 space-y-7">
+      
+      <!-- Interactive Wall & Silhouette Mockup -->
+      <div class="space-y-2">
+        <span class="text-[10px] uppercase tracking-widest text-neutral-400">Interior Proportion Visualizer (10ft Wall)</span>
+        
+        <div class="relative w-full h-56 bg-neutral-900/90 rounded-2xl border border-borderDark flex items-end justify-center p-4 overflow-hidden">
+          <div class="absolute bottom-0 inset-x-0 h-4 bg-neutral-950 border-t border-borderDark"></div>
+
+          <!-- Human Silhouette Scale (5'8") -->
+          <div class="absolute bottom-4 left-6 flex flex-col items-center opacity-40">
+            <div class="w-4 h-4 rounded-full bg-neutral-400 mb-1"></div>
+            <div class="w-6 h-28 bg-neutral-400 rounded-t-lg"></div>
+            <span class="text-[9px] text-neutral-500 font-mono mt-1">5'8"</span>
+          </div>
+
+          <!-- Framed Artwork -->
+          <div id="mockupFrame" class="relative transition-all duration-300 mb-12 shadow-2xl flex items-center justify-center p-2.5" style="width: 140px; height: 100px;">
+            <img id="mockupImage" src="" alt="Framed preview" class="w-full h-full object-cover rounded-sm" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame Finish -->
+      <div class="space-y-2">
+        <label class="block text-[11px] uppercase tracking-widest text-neutral-400">Frame Architecture & Finish</label>
+        <div class="grid grid-cols-3 gap-3">
+          <button onclick="setFrameStyle('champagne')" id="frameBtn-champagne" class="p-3 rounded-xl border border-gold-500 bg-gold-500/10 text-center transition-all">
+            <span class="block text-xs text-parchment font-medium">Brushed Gold</span>
+            <span class="text-[10px] text-gold-400">Champagne</span>
+          </button>
+          <button onclick="setFrameStyle('obsidian')" id="frameBtn-obsidian" class="p-3 rounded-xl border border-borderDark bg-obsidian text-center transition-all">
+            <span class="block text-xs text-parchment font-medium">Matte Obsidian</span>
+            <span class="text-[10px] text-neutral-400">Black Wood</span>
+          </button>
+          <button onclick="setFrameStyle('teak')" id="frameBtn-teak" class="p-3 rounded-xl border border-borderDark bg-obsidian text-center transition-all">
+            <span class="block text-xs text-parchment font-medium">Royal Teak</span>
+            <span class="text-[10px] text-neutral-400">Hand-carved</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Print Size -->
+      <div class="space-y-2">
+        <label class="block text-[11px] uppercase tracking-widest text-neutral-400">Print Size (Inches / CM)</label>
+        <select id="printSizeSelect" onchange="calculateUpsellTotal()" class="w-full bg-obsidian border border-borderDark rounded-xl px-4 py-3 text-xs text-parchment focus:border-gold-500 focus:outline-none">
+          <option value="24x18">24 × 18 in (61 × 46 cm) — Living Room Classic</option>
+          <option value="36x24" selected>36 × 24 in (91 × 61 cm) — Master Grand Gallery</option>
+          <option value="48x32">48 × 32 in (122 × 81 cm) — Statement Archival Acrylic</option>
+        </select>
+      </div>
+
+      <!-- Upsell Checkbox Addons -->
+      <div class="space-y-3 pt-2 border-t border-borderDark">
+        <span class="text-[11px] uppercase tracking-widest text-gold-400 font-medium">Curator's Add-on Suite</span>
+        
+        <label class="flex items-start gap-3 p-3.5 rounded-xl bg-obsidian border border-borderDark cursor-pointer hover:border-gold-500/40 transition-colors">
+          <input type="checkbox" id="addonAlbum" onchange="calculateUpsellTotal()" class="mt-1 accent-gold-500 w-4 h-4 rounded" />
+          <div class="flex-grow">
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-parchment font-medium">Raw Silk & Italian Leather Keepsake Album</span>
+              <span class="text-xs text-gold-300 font-mono" id="labelAlbumPrice">₹95,000</span>
+            </div>
+            <p class="text-[10px] text-neutral-400 mt-0.5">30-leaf layflat Italian heirloom paper with embossed couple monogram.</p>
+          </div>
+        </label>
+
+        <label class="flex items-start gap-3 p-3.5 rounded-xl bg-obsidian border border-borderDark cursor-pointer hover:border-gold-500/40 transition-colors">
+          <input type="checkbox" id="addonCinema" onchange="calculateUpsellTotal()" class="mt-1 accent-gold-500 w-4 h-4 rounded" />
+          <div class="flex-grow">
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-parchment font-medium">Director's 4K Anniversary Cinema Cut</span>
+              <span class="text-xs text-gold-300 font-mono" id="labelCinemaPrice">₹55,000</span>
+            </div>
+            <p class="text-[10px] text-neutral-400 mt-0.5">Master graded 60-second vertical social cut + licensed orchestral score.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="p-4 rounded-xl bg-neutral-900/60 border border-borderDark text-[11px] text-neutral-400 space-y-1">
+        <p class="text-parchment font-medium">✦ White-Glove Installation Included</p>
+        <p>Complimentary personal framing installation across South Delhi, Chhatarpur & Gurugram. Insured courier delivery across India.</p>
+      </div>
+
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-6 border-t border-borderDark bg-obsidian space-y-3">
+      <div class="flex items-center justify-between text-xs">
+        <span class="text-neutral-400">Total Investment (Incl. 18% GST):</span>
+        <span class="serif-title text-2xl text-gold-300 font-light font-mono" id="drawerTotalPrice">₹53,500</span>
+      </div>
+
+      <button onclick="handleUpsellCheckout()" class="w-full py-3.5 rounded-full bg-gold-500 hover:bg-gold-400 text-obsidian text-xs uppercase tracking-[0.25em] font-semibold transition-all shadow-lg shadow-gold-500/20">
+        Confirm Commission Order
+      </button>
+    </div>
+  </div>
+
+
+  <script>
+    /* =========================================================================
+       PRAPIC APPLICATION STORE & DATA ISOLATION
+       ========================================================================= */
+    const STORAGE_KEY = 'prapic_studio_data_v1';
+
+    const DEFAULT_SERVICES = [
+      {
+        id: 'svc-1',
+        title: 'Royal Destination Nuptials',
+        tag: 'Wedding Commissions',
+        price: 450000,
+        desc: 'Full coverage across Udaipur, South Delhi farmhouses & international venues. 3-day multi-camera master team directed by PraPic, archival medium-format imagery, and private vault hosting.',
+        deliverables: ['Lead Direction by PraPic + Master Team', 'Archival Medium-Format & 35mm Capture', 'Private Client Cloud Vault Access', 'Color Graded Master TIFFs & 4K Teaser'],
+        highlight: true
+      },
+      {
+        id: 'svc-2',
+        title: 'Haute Couture Atelier Edit',
+        tag: 'Editorial & Runway',
+        price: 220000,
+        desc: 'Bespoke campaign lookbooks for Delhi NCR luxury fashion houses. Full color grading, editorial lighting kits, and 72-hour social format cutdowns.',
+        deliverables: ['Full Day Studio / Heritage Location Shoot', 'Master High-Fashion Color Grade', 'Full Commercial Usage Rights', 'Multi-Aspect Ratio Deliverables'],
+        highlight: false
+      },
+      {
+        id: 'svc-3',
+        title: "Director's 4K Cinema Reels",
+        tag: 'Motion Atelier',
+        price: 85000,
+        desc: 'Cinematic 60-second vertical social cutdowns set to bespoke licenced orchestral or contemporary scores. Shot on Sony Cinema Line & Leica glass.',
+        deliverables: ['4K Ultra HD Master Render', 'Bespoke Licensed Audio Track', 'Color Grade for OLED Screens', 'Vertical & Widescreen Cuts'],
+        highlight: false
+      }
+    ];
+
+    const DEFAULT_STORE = {
+      services: DEFAULT_SERVICES,
+      rates: {
+        album: 95000,
+        anniversaryCut: 55000,
+        basePrint: 45000
+      },
+      galleries: [
+        {
+          id: 'udaipur-wedding',
+          title: 'The Kapoor-Mehra Nuptials',
+          tag: 'Royal Wedding Series',
+          location: 'The Leela Palace, Udaipur',
+          key: 'VAULT2026',
+          milestoneDays: 60,
+          photos: [
+            { id: 101, title: 'The Pheras by Pichola Lake', meta: 'Hasselblad H6D · 80mm f/2.2 · ISO 64', url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop', colSpan: 8, height: 'h-96', favorites: 14 },
+            { id: 102, title: 'Bridal Jewels in Antique Gold', meta: 'Leica SL2 · 50mm f/1.4 · ISO 100', url: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=900&auto=format&fit=crop', colSpan: 4, height: 'h-96', favorites: 29 },
+            { id: 103, title: 'Barat Procession at Dusk', meta: 'Sony A1 · 35mm f/1.4 GM · ISO 400', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop', colSpan: 4, height: 'h-80', favorites: 8 },
+            { id: 104, title: 'The Royal Courtyard Vows', meta: 'Hasselblad H6D · 28mm f/4 · ISO 100', url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop', colSpan: 4, height: 'h-80', favorites: 19 },
+            { id: 105, title: 'Candid Joy in Rose Petals', meta: 'Leica SL2 · 90mm f/2.0 · ISO 200', url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=900&auto=format&fit=crop', colSpan: 4, height: 'h-80', favorites: 22 }
+          ]
+        },
+        {
+          id: 'delhi-couture',
+          title: 'Tarun Tahiliani Bridal Atelier',
+          tag: 'High Fashion Editorial',
+          location: 'Sunder Nursery, New Delhi',
+          key: 'COUTURE2026',
+          milestoneDays: 90,
+          photos: [
+            { id: 201, title: 'Zardozi Drapes in Heritage Sunlight', meta: 'Phase One IQ4 · 110mm f/2.8 · ISO 50', url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', colSpan: 6, height: 'h-96', favorites: 41 },
+            { id: 202, title: 'Silk Monolith Silhouette', meta: 'Leica SL2 · 35mm f/1.4 · ISO 100', url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=900&auto=format&fit=crop', colSpan: 6, height: 'h-96', favorites: 18 }
+          ]
+        },
+        {
+          id: 'gurugram-sangeet',
+          title: 'The Sangeet Odyssey',
+          tag: 'Celebration Soirée',
+          location: 'The Oberoi, Gurugram',
+          key: 'SANGEET26',
+          milestoneDays: 45,
+          photos: [
+            { id: 301, title: 'Sufi Night Illumination', meta: 'Sony A1 · 24mm f/1.4 · ISO 1600', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop', colSpan: 12, height: 'h-96', favorites: 35 }
+          ]
+        }
+      ],
+      leads: [
+        { id: 1, name: 'Ananya Singhania', phone: '+91 98111 23456', type: 'Royal Destination Nuptials', location: 'Chhatarpur Farmhouse', date: 'Dec 2026', status: 'New' },
+        { id: 2, name: 'Vikramaditya Oberoi', phone: '+91 99990 87654', type: 'Haute Couture Atelier Edit', location: 'The Leela Palace, New Delhi', date: 'Jan 2027', status: 'Contacted' },
+        { id: 3, name: 'Ritu Kumar Studio', phone: '+91 98100 11223', type: "Director's 4K Cinema Reels", location: 'Sunder Nursery, New Delhi', date: 'Oct 2026', status: 'Retainer Paid' }
+      ]
+    };
+
+    function getStore() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try { return JSON.parse(saved); } catch(e) { }
+      }
+      return DEFAULT_STORE;
+    }
+
+    function setStore(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    // Runtime variables
+    let activeShootIndex = 0;
+    let currentLightboxPhoto = null;
+    let activeFrameStyle = 'champagne';
+    let isMilestoneReserved = false;
+
+    function formatINR(val) {
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      }).format(val || 0);
+    }
+
+    /* =========================================================================
+       VIEW ROUTER
+       ========================================================================= */
+    function showView(viewName) {
+      const publicView = document.getElementById('view-public');
+      const vaultView = document.getElementById('view-vault');
+      const adminView = document.getElementById('view-admin');
+
+      publicView.classList.add('hidden');
+      vaultView.classList.add('hidden');
+      adminView.classList.add('hidden');
+
+      if (viewName === 'public-home') {
+        publicView.classList.remove('hidden');
+        renderPublicServices();
+        populateConsultationDropdown();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewName === 'vault') {
+        vaultView.classList.remove('hidden');
+        renderVault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewName === 'admin') {
+        adminView.classList.remove('hidden');
+        renderAdminDashboard();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    /* =========================================================================
+       TOAST SYSTEM
+       ========================================================================= */
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-[-150%]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-[-150%]', 'opacity-0');
+      }, 3500);
+    }
+
+    /* =========================================================================
+       SERVICES RENDERER & CONSULTATION DROPDOWN
+       ========================================================================= */
+    function renderPublicServices() {
+      const store = getStore();
+      const container = document.getElementById('services-cards-grid');
+      
+      if (!store.services || store.services.length === 0) {
+        container.innerHTML = `<div class="col-span-3 text-center py-12 text-neutral-400 text-xs uppercase tracking-widest">No services published yet. Add services via the PraPic Admin Portal.</div>`;
+        return;
+      }
+
+      container.innerHTML = store.services.map(svc => `
+        <div class="bg-card border ${svc.highlight ? 'border-gold-500/50 shadow-xl shadow-gold-500/5' : 'border-borderDark/80 hover:border-gold-500/40'} rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 relative group">
+          ${svc.highlight ? `
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gold-500 text-obsidian text-[9px] uppercase tracking-widest font-semibold">
+              Most Inquired
+            </div>
+          ` : ''}
+
+          <div class="space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-gold-400">${svc.tag || 'Commission'}</span>
+            <h3 class="serif-title text-3xl font-light text-parchment">${svc.title}</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed font-light">${svc.desc}</p>
+            
+            ${svc.deliverables && svc.deliverables.length ? `
+              <div class="pt-4 border-t border-borderDark/60 space-y-2">
+                <span class="text-[9px] uppercase tracking-widest text-neutral-500 font-medium">Deliverables & Specs</span>
+                <ul class="space-y-1.5">
+                  ${svc.deliverables.map(d => `
+                    <li class="text-[11px] text-neutral-300 flex items-center gap-2">
+                      <span class="w-1 h-1 rounded-full bg-gold-400"></span>
+                      <span>${d}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="pt-8 border-t border-borderDark mt-6 flex items-baseline justify-between">
+            <span class="text-[11px] uppercase tracking-wider text-neutral-400">Starting Investment</span>
+            <span class="serif-title text-2xl text-gold-300 font-light font-mono">${formatINR(svc.price)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function populateConsultationDropdown() {
+      const store = getStore();
+      const select = document.getElementById('commissionType');
+      if (!select) return;
+      select.innerHTML = store.services.map(svc => `
+        <option value="${svc.title}">${svc.title} (${formatINR(svc.price)})</option>
+      `).join('');
+    }
+
+    function handleConsultationSubmit(e) {
+      e.preventDefault();
+      const store = getStore();
+      const newLead = {
+        id: Date.now(),
+        name: document.getElementById('clientName').value,
+        phone: document.getElementById('clientPhone').value,
+        type: document.getElementById('commissionType').value,
+        location: document.getElementById('shootLocation').value,
+        date: document.getElementById('eventDate').value || 'Winter Season',
+        status: 'New'
+      };
+
+      store.leads.unshift(newLead);
+      setStore(store);
+      document.getElementById('leadForm').reset();
+      showToast("Inquiry received. PraPic's concierge will contact you on WhatsApp.");
+    }
+
+    /* =========================================================================
+       ADMIN CRUD FOR SERVICES
+       ========================================================================= */
+    function openServiceModal(serviceId = null) {
+      const modal = document.getElementById('serviceModal');
+      const store = getStore();
+      
+      document.getElementById('serviceModalId').value = serviceId || '';
+
+      if (serviceId) {
+        const svc = store.services.find(s => s.id === serviceId);
+        if (svc) {
+          document.getElementById('serviceModalTitle').innerText = "Edit Commission Offering";
+          document.getElementById('serviceModalSub').innerText = "Commission Modification";
+          document.getElementById('svcInputTitle').value = svc.title;
+          document.getElementById('svcInputTag').value = svc.tag || '';
+          document.getElementById('svcInputPrice').value = svc.price || '';
+          document.getElementById('svcInputDesc').value = svc.desc || '';
+          document.getElementById('svcInputDeliverables').value = (svc.deliverables || []).join(', ');
+          document.getElementById('svcInputHighlight').checked = !!svc.highlight;
+        }
+      } else {
+        document.getElementById('serviceModalTitle').innerText = "Create Commission Offering";
+        document.getElementById('serviceModalSub').innerText = "PraPic Commission";
+        document.getElementById('svcInputTitle').value = '';
+        document.getElementById('svcInputTag').value = 'Wedding Commission';
+        document.getElementById('svcInputPrice').value = '';
+        document.getElementById('svcInputDesc').value = '';
+        document.getElementById('svcInputDeliverables').value = '';
+        document.getElementById('svcInputHighlight').checked = false;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeServiceModal() {
+      document.getElementById('serviceModal').classList.add('hidden');
+    }
+
+    function saveServiceFromModal() {
+      const id = document.getElementById('serviceModalId').value;
+      const title = document.getElementById('svcInputTitle').value.trim();
+      const tag = document.getElementById('svcInputTag').value.trim();
+      const price = Number(document.getElementById('svcInputPrice').value) || 0;
+      const desc = document.getElementById('svcInputDesc').value.trim();
+      const deliverablesStr = document.getElementById('svcInputDeliverables').value.trim();
+      const highlight = document.getElementById('svcInputHighlight').checked;
+
+      if (!title || !price) {
+        showToast("Please provide a Commission Title and Starting Price.");
+        return;
+      }
+
+      const deliverables = deliverablesStr ? deliverablesStr.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+      const store = getStore();
+
+      if (id) {
+        const idx = store.services.findIndex(s => s.id === id);
+        if (idx !== -1) {
+          store.services[idx] = { ...store.services[idx], title, tag, price, desc, deliverables, highlight };
+          showToast(`Updated "${title}" successfully.`);
+        }
+      } else {
+        const newService = {
+          id: `svc-${Date.now()}`,
+          title,
+          tag,
+          price,
+          desc,
+          deliverables,
+          highlight
+        };
+        store.services.push(newService);
+        showToast(`Added new commission: "${title}".`);
+      }
+
+      setStore(store);
+      closeServiceModal();
+      renderPublicServices();
+      populateConsultationDropdown();
+      renderAdminDashboard();
+    }
+
+    function deleteService(serviceId) {
+      const store = getStore();
+      const svc = store.services.find(s => s.id === serviceId);
+      const title = svc ? svc.title : "this service";
+
+      const confirmed = window.confirm ? confirm(`Remove "${title}" from the atelier catalog?`) : true;
+      if (!confirmed) return;
+
+      store.services = store.services.filter(s => s.id !== serviceId);
+      setStore(store);
+      
+      renderPublicServices();
+      populateConsultationDropdown();
+      renderAdminDashboard();
+      showToast(`Removed "${title}".`);
+    }
+
+    function resetServicesToDefault() {
+      const store = getStore();
+      store.services = JSON.parse(JSON.stringify(DEFAULT_SERVICES));
+      setStore(store);
+      renderPublicServices();
+      populateConsultationDropdown();
+      renderAdminDashboard();
+      showToast("Restored PraPic default rate card.");
+    }
+
+    /* =========================================================================
+       ADMIN DASHBOARD RENDERER & DATA CONTROLS
+       ========================================================================= */
+    function renderAdminDashboard() {
+      const store = getStore();
+
+      document.getElementById('adminTotalServicesCount').innerText = store.services.length;
+      document.getElementById('adminTotalLeadsCount').innerText = store.leads.length;
+      document.getElementById('adminTotalVaultsCount').innerText = store.galleries.length;
+      document.getElementById('leadCountBadge').innerText = `${store.leads.length} Inquiries`;
+
+      const svcContainer = document.getElementById('adminServicesContainer');
+      svcContainer.innerHTML = store.services.map(svc => `
+        <div class="bg-obsidian border ${svc.highlight ? 'border-gold-500/60' : 'border-borderDark'} rounded-2xl p-6 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] uppercase tracking-wider text-gold-400 font-mono">${svc.tag}</span>
+              ${svc.highlight ? `<span class="text-[9px] uppercase px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 font-medium">Highlighted</span>` : ''}
+            </div>
+            <h4 class="serif-title text-2xl font-light text-parchment">${svc.title}</h4>
+            <p class="text-[11px] text-neutral-400 line-clamp-2">${svc.desc}</p>
+            <p class="serif-title text-xl text-gold-300 font-mono mt-1">${formatINR(svc.price)}</p>
+          </div>
+
+          <div class="pt-4 border-t border-borderDark flex items-center justify-between">
+            <button onclick="openServiceModal('${svc.id}')" class="text-xs uppercase tracking-wider text-parchment hover:text-gold-400 transition-colors flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+              Edit
+            </button>
+            <button onclick="deleteService('${svc.id}')" class="text-xs uppercase tracking-wider text-neutral-500 hover:text-rose-400 transition-colors">
+              Delete
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('adminRateAlbum').value = store.rates.album;
+      document.getElementById('adminRateAnniversary').value = store.rates.anniversaryCut;
+      document.getElementById('adminRatePrint').value = store.rates.basePrint;
+
+      const leadsContainer = document.getElementById('adminLeadsList');
+      leadsContainer.innerHTML = store.leads.map((lead, idx) => `
+        <div class="p-4 rounded-xl bg-obsidian border border-borderDark flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <h5 class="text-xs font-semibold text-parchment">${lead.name}</h5>
+              <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full ${lead.status === 'New' ? 'bg-emerald-500/20 text-emerald-400' : lead.status === 'Retainer Paid' ? 'bg-gold-500/20 text-gold-300' : 'bg-neutral-800 text-neutral-400'}">${lead.status}</span>
+            </div>
+            <p class="text-[11px] text-neutral-400">${lead.phone} · ${lead.location}</p>
+            <p class="text-[10px] text-gold-400">${lead.type} (${lead.date})</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="toggleLeadStatus(${idx})" class="text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg border border-borderDark hover:border-gold-500 text-neutral-300">
+              Next Status
+            </button>
+            <button onclick="deleteLead(${idx})" class="text-neutral-500 hover:text-rose-400 p-1.5" title="Remove Lead">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      const galleriesContainer = document.getElementById('adminGalleriesList');
+      galleriesContainer.innerHTML = store.galleries.map((g, idx) => `
+        <div class="p-4 rounded-xl bg-obsidian border border-borderDark flex items-center justify-between">
+          <div>
+            <h5 class="text-xs font-semibold text-parchment">${g.title}</h5>
+            <p class="text-[10px] text-neutral-400 font-mono">PIN: <span class="text-gold-400 font-bold">${g.key}</span> · ${g.photos.length} Archival Plates</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-[11px] text-neutral-500 font-mono">${g.milestoneDays}d cutdown</span>
+            <button onclick="deleteVault(${idx})" class="text-neutral-500 hover:text-rose-400 p-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function saveAdminUpsellRates() {
+      const store = getStore();
+      store.rates.album = Number(document.getElementById('adminRateAlbum').value) || store.rates.album;
+      store.rates.anniversaryCut = Number(document.getElementById('adminRateAnniversary').value) || store.rates.anniversaryCut;
+      store.rates.basePrint = Number(document.getElementById('adminRatePrint').value) || store.rates.basePrint;
+
+      setStore(store);
+      showToast("Upsell rate card updated successfully.");
+    }
+
+    function toggleLeadStatus(idx) {
+      const store = getStore();
+      const statusCycle = ['New', 'Contacted', 'Retainer Paid', 'Closed'];
+      const curIndex = statusCycle.indexOf(store.leads[idx].status);
+      store.leads[idx].status = statusCycle[(curIndex + 1) % statusCycle.length];
+      setStore(store);
+      renderAdminDashboard();
+    }
+
+    function deleteLead(idx) {
+      const store = getStore();
+      store.leads.splice(idx, 1);
+      setStore(store);
+      renderAdminDashboard();
+      showToast("Lead archived.");
+    }
+
+    function createNewClientShoot() {
+      const title = document.getElementById('newShootTitle').value.trim();
+      const location = document.getElementById('newShootLocation').value.trim();
+      const key = document.getElementById('newShootKey').value.trim().toUpperCase();
+      const milestone = Number(document.getElementById('newShootMilestone').value) || 60;
+
+      if (!title || !key) {
+        showToast("Please enter a Shoot Title and unique PIN.");
+        return;
+      }
+
+      const store = getStore();
+      store.galleries.push({
+        id: `shoot-${Date.now()}`,
+        title: title,
+        tag: 'Commission Archive',
+        location: location || 'Delhi NCR',
+        key: key,
+        milestoneDays: milestone,
+        photos: [
+          { id: Date.now(), title: 'Master Atelier Plate I', meta: 'Hasselblad H6D · 80mm f/2.8', url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop', colSpan: 12, height: 'h-96', favorites: 1 }
+        ]
+      });
+
+      setStore(store);
+      document.getElementById('newShootTitle').value = '';
+      document.getElementById('newShootLocation').value = '';
+      document.getElementById('newShootKey').value = '';
+      document.getElementById('newShootMilestone').value = '';
+
+      renderAdminDashboard();
+      showToast(`Client Suite "${title}" provisioned with PIN: ${key}`);
+    }
+
+    function deleteVault(idx) {
+      const store = getStore();
+      if (store.galleries.length <= 1) {
+        showToast("At least one vault gallery must remain active.");
+        return;
+      }
+      store.galleries.splice(idx, 1);
+      setStore(store);
+      renderAdminDashboard();
+      showToast("Vault deleted.");
+    }
+
+    /* =========================================================================
+       GATE LOCK & PIN VALIDATION
+       ========================================================================= */
+    function openClientGateModal() {
+      document.getElementById('clientGateModal').classList.remove('hidden');
+      document.getElementById('gateErrorText').classList.add('hidden');
+      document.getElementById('vaultKeyInput').value = '';
+      setTimeout(() => document.getElementById('vaultKeyInput').focus(), 200);
+    }
+
+    function closeClientGateModal() {
+      document.getElementById('clientGateModal').classList.add('hidden');
+      document.getElementById('curtainLeft').classList.remove('curtain-left');
+      document.getElementById('curtainRight').classList.remove('curtain-right');
+    }
+
+    function validateVaultKey() {
+      const input = document.getElementById('vaultKeyInput').value.trim().toUpperCase();
+      const errorText = document.getElementById('gateErrorText');
+      const gateCard = document.getElementById('gateCard');
+      const store = getStore();
+
+      const matchedIndex = store.galleries.findIndex(g => g.key.toUpperCase() === input);
+
+      if (matchedIndex !== -1) {
+        activeShootIndex = matchedIndex;
+        errorText.classList.add('hidden');
+        
+        document.getElementById('curtainLeft').classList.add('curtain-left');
+        document.getElementById('curtainRight').classList.add('curtain-right');
+        
+        setTimeout(() => {
+          closeClientGateModal();
+          showView('vault');
+          showToast("PraPic Vault Unlocked. Welcome.");
+        }, 800);
+      } else {
+        errorText.classList.remove('hidden');
+        gateCard.classList.add('shake-anim');
+        setTimeout(() => gateCard.classList.remove('shake-anim'), 400);
+      }
+    }
+
+    function openAdminGateModal() {
+      document.getElementById('adminGateModal').classList.remove('hidden');
+      document.getElementById('adminErrorText').classList.add('hidden');
+      document.getElementById('adminPinInput').value = '';
+      setTimeout(() => document.getElementById('adminPinInput').focus(), 200);
+    }
+
+    function closeAdminGateModal() {
+      document.getElementById('adminGateModal').classList.add('hidden');
+    }
+
+    function validateAdminPin() {
+      const pin = document.getElementById('adminPinInput').value.trim();
+      if (pin === 'ADMIN2026') {
+        closeAdminGateModal();
+        showView('admin');
+        showToast("PraPic Admin Authorized.");
+      } else {
+        document.getElementById('adminErrorText').classList.remove('hidden');
+      }
+    }
+
+    /* =========================================================================
+       VAULT RENDERING & UPSELL INTEGRATION
+       ========================================================================= */
+    function renderVault() {
+      const store = getStore();
+      const activeShoot = store.galleries[activeShootIndex] || store.galleries[0];
+
+      document.getElementById('vaultClientNameDisplay').innerText = `PraPic · Vault: ${activeShoot.title}`;
+      document.getElementById('currentShootTag').innerText = activeShoot.tag;
+      document.getElementById('currentShootTitle').innerText = activeShoot.title;
+      document.getElementById('currentShootMeta').innerText = `${activeShoot.location} · 4K Master Archival Resolution`;
+      
+      document.getElementById('milestoneHeadline').innerText = `1st Karwa Chauth & Wedding Anniversary Cinema Cut unlocks in ${activeShoot.milestoneDays} days`;
+
+      const tabsNav = document.getElementById('gallery-tabs-nav');
+      tabsNav.innerHTML = store.galleries.map((g, idx) => `
+        <button onclick="switchShoot(${idx})" class="whitespace-nowrap pb-3 text-xs uppercase tracking-widest font-medium transition-colors ${idx === activeShootIndex ? 'text-gold-400 border-b-2 border-gold-400' : 'text-neutral-500 hover:text-neutral-300'}">
+          ${g.title}
+        </button>
+      `).join('');
+
+      const grid = document.getElementById('editorial-grid');
+      grid.innerHTML = activeShoot.photos.map((p, idx) => `
+        <div class="md:col-span-${p.colSpan} group relative rounded-2xl overflow-hidden bg-card border border-borderDark/60 ${p.height} cursor-pointer" onclick="openLightbox(${idx})">
+          <img src="${p.url}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95" loading="lazy" />
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-between">
+            <div class="flex justify-end">
+              <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-obsidian/70 backdrop-blur-md border border-gold-500/30 text-gold-300 font-mono">
+                ${p.favorites} ♥
+              </span>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-gold-400 font-mono">${p.meta}</span>
+              <h4 class="serif-title text-xl text-parchment font-light mt-0.5">${p.title}</h4>
+              <div class="mt-3 flex gap-3">
+                <button onclick="event.stopPropagation(); openPrintDrawerForSpecific(${p.id})" class="text-[10px] uppercase tracking-wider text-gold-400 hover:text-gold-300 border-b border-gold-500/60 pb-0.5">
+                  Order Fine Art Print →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchShoot(idx) {
+      activeShootIndex = idx;
+      renderVault();
+    }
+
+    function toggleMilestoneReservation() {
+      const btn = document.getElementById('milestoneBtn');
+      if (!isMilestoneReserved) {
+        isMilestoneReserved = true;
+        btn.innerText = "Reserved for Anniversary";
+        btn.classList.remove('bg-gold-500', 'hover:bg-gold-400', 'text-obsidian');
+        btn.classList.add('bg-surface', 'border', 'border-gold-500', 'text-gold-400');
+        showToast("Anniversary Cinema Cut pre-reserved. PraPic concierge will reach out before the milestone date.");
+      } else {
+        isMilestoneReserved = false;
+        btn.innerText = "Pre-Reserve Cut";
+        btn.classList.add('bg-gold-500', 'hover:bg-gold-400', 'text-obsidian');
+        btn.classList.remove('bg-surface', 'border', 'border-gold-500', 'text-gold-400');
+      }
+    }
+
+    function downloadAllPreview() {
+      showToast("Generating signed master ZIP token... Download will begin momentarily.");
+    }
+
+    /* =========================================================================
+       SHARING SYSTEM (Web Share + Fallback)
+       ========================================================================= */
+    function triggerShareGallery() {
+      const shareData = {
+        title: 'PraPic · Bespoke Client Vault',
+        text: 'Access our private wedding gallery on PraPic with invitation key: VAULT2026',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        copyToClipboardFallback(window.location.href);
+      }
+    }
+
+    function triggerShareCurrentPhoto() {
+      if (!currentLightboxPhoto) return;
+      const shareUrl = `${window.location.origin}${window.location.pathname}#photo-${currentLightboxPhoto.id}`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: currentLightboxPhoto.title,
+          text: `View "${currentLightboxPhoto.title}" from PraPic`,
+          url: shareUrl
+        }).catch(() => {});
+      } else {
+        copyToClipboardFallback(shareUrl);
+      }
+    }
+
+    function copyToClipboardFallback(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("Direct vault link copied to clipboard!");
+        }).catch(() => {
+          legacyCopy(text);
+        });
+      } else {
+        legacyCopy(text);
+      }
+    }
+
+    function legacyCopy(text) {
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      showToast("Direct link copied to clipboard!");
+    }
+
+    /* =========================================================================
+       LIGHTBOX VIEWER
+       ========================================================================= */
+    let currentPhotoIndex = 0;
+
+    function openLightbox(index) {
+      const store = getStore();
+      const photos = store.galleries[activeShootIndex].photos;
+      currentPhotoIndex = index;
+      currentLightboxPhoto = photos[index];
+
+      document.getElementById('lbImage').src = currentLightboxPhoto.url;
+      document.getElementById('lbTitle').innerText = currentLightboxPhoto.title;
+      document.getElementById('lbMeta').innerText = currentLightboxPhoto.meta;
+      document.getElementById('lbFavoriteCount').innerText = currentLightboxPhoto.favorites;
+
+      document.getElementById('lightboxModal').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    function navigateLightbox(step) {
+      const store = getStore();
+      const photos = store.galleries[activeShootIndex].photos;
+      currentPhotoIndex = (currentPhotoIndex + step + photos.length) % photos.length;
+      openLightbox(currentPhotoIndex);
+    }
+
+    function toggleFavoriteCurrentPhoto() {
+      if (!currentLightboxPhoto) return;
+      currentLightboxPhoto.favorites += 1;
+      document.getElementById('lbFavoriteCount').innerText = currentLightboxPhoto.favorites;
+      showToast("Saved to your favorites portfolio.");
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightboxModal');
+      if (!lb.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+
+    /* =========================================================================
+       FINE ART PRINT & UPSELL DRAWER VISUALIZER
+       ========================================================================= */
+    function openPrintDrawerForCurrent() {
+      if (!currentLightboxPhoto) return;
+      openPrintDrawerForSpecific(currentLightboxPhoto.id);
+    }
+
+    function openPrintDrawerForSpecific(photoId) {
+      const store = getStore();
+      const activeShoot = store.galleries[activeShootIndex];
+      const photo = activeShoot.photos.find(p => p.id === photoId) || activeShoot.photos[0];
+      
+      document.getElementById('mockupImage').src = photo.url;
+      setFrameStyle('champagne');
+      
+      document.getElementById('labelAlbumPrice').innerText = formatINR(store.rates.album);
+      document.getElementById('labelCinemaPrice').innerText = formatINR(store.rates.anniversaryCut);
+      
+      calculateUpsellTotal();
+      document.getElementById('printDrawer').classList.remove('translate-x-full');
+    }
+
+    function closePrintDrawer() {
+      document.getElementById('printDrawer').classList.add('translate-x-full');
+    }
+
+    function setFrameStyle(style) {
+      activeFrameStyle = style;
+      const frameEl = document.getElementById('mockupFrame');
+      
+      ['champagne', 'obsidian', 'teak'].forEach(s => {
+        const btn = document.getElementById(`frameBtn-${s}`);
+        btn.classList.remove('border-gold-500', 'bg-gold-500/10');
+        btn.classList.add('border-borderDark', 'bg-obsidian');
+      });
+
+      const activeBtn = document.getElementById(`frameBtn-${style}`);
+      activeBtn.classList.add('border-gold-500', 'bg-gold-500/10');
+      activeBtn.classList.remove('border-borderDark', 'bg-obsidian');
+
+      if (style === 'champagne') {
+        frameEl.style.border = "6px solid #D4AF37";
+        frameEl.style.boxShadow = "0 20px 40px rgba(212, 175, 55, 0.25)";
+      } else if (style === 'obsidian') {
+        frameEl.style.border = "6px solid #1a1a1a";
+        frameEl.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.85)";
+      } else if (style === 'teak') {
+        frameEl.style.border = "6px solid #8B5A2B";
+        frameEl.style.boxShadow = "0 20px 40px rgba(139, 90, 43, 0.3)";
+      }
+
+      calculateUpsellTotal();
+    }
+
+    function calculateUpsellTotal() {
+      const store = getStore();
+      const sizeVal = document.getElementById('printSizeSelect').value;
+      const mockup = document.getElementById('mockupFrame');
+      
+      let basePrintPrice = store.rates.basePrint || 45000;
+      if (sizeVal === '24x18') {
+        basePrintPrice = Math.round(basePrintPrice * 0.65);
+        mockup.style.width = '110px';
+        mockup.style.height = '80px';
+      } else if (sizeVal === '36x24') {
+        mockup.style.width = '150px';
+        mockup.style.height = '105px';
+      } else if (sizeVal === '48x32') {
+        basePrintPrice = Math.round(basePrintPrice * 1.55);
+        mockup.style.width = '190px';
+        mockup.style.height = '130px';
+      }
+
+      if (activeFrameStyle === 'champagne') basePrintPrice += 8500;
+      if (activeFrameStyle === 'teak') basePrintPrice += 12000;
+
+      let total = basePrintPrice;
+      if (document.getElementById('addonAlbum').checked) {
+        total += store.rates.album;
+      }
+      if (document.getElementById('addonCinema').checked) {
+        total += store.rates.anniversaryCut;
+      }
+
+      document.getElementById('drawerTotalPrice').innerText = formatINR(total);
+    }
+
+    function handleUpsellCheckout() {
+      closePrintDrawer();
+      showToast("Order token generated. PraPic Curator will confirm framing schedule via WhatsApp.");
+    }
+
+    /* =========================================================================
+       INITIALIZATION
+       ========================================================================= */
+    window.onload = function() {
+      renderPublicServices();
+      populateConsultationDropdown();
+    };
+  </script>
+</body>
+</html>
